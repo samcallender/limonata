@@ -3,17 +3,25 @@ require 'Nokogiri'
 require 'JSON'
 require 'Pry'
 
-n = 1
 
-city_name_af = []
-building_id_af = []
-building_name_af = []
+select_cities_h = {
+	1 => 'Vancouver',
+	4 => 'Chicago',
+	6 => 'Shanghai',
+	7 => 'Hong Kong',
+	8 => 'New York',
+}
 
-while n < 10
+select_cities_a = ['1', '4', '6', '7', '8']
 
-	m = n.to_s
 
-	city = HTTParty.get('http://skyscraperpage.com/diagrams/?cityID='+m)
+city_name_aa = []
+building_id_aa = []
+building_name_aa = []
+
+select_cities_a.each do |n|
+
+	city = HTTParty.get('http://skyscraperpage.com/diagrams/?cityID='+n)
 
 	city_rdom = Nokogiri::HTML(city)
 
@@ -21,10 +29,11 @@ while n < 10
 
 	city_table = city_med[6]
 
-# maybe do an if statement whend city_med[6] is shitty
-	building_name_aa.push(city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['building']['name']"}[0][1].gsub("[",'').gsub("]",'').split(','))
+
+
 	building_id_aa.push(city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['building']['buildingID']"}[0][1].gsub("[",'').gsub("]",'').split(',')) 
 	city_name_aa.push(city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['city']['city']"}[0][1].gsub("[",'').gsub("]",'').split(',')) 
+	building_name_aa.push(city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['building']['name']"}[0][1].gsub("[",'').gsub("]",'').split(','))
 
 	# image_width_a = city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['image']['width']"}[0][1].gsub("[",'').gsub("]",'').split(',')
 	# image_height_a = city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['image']['height']"}[0][1].gsub("[",'').gsub("]",'').split(',')
@@ -46,7 +55,6 @@ while n < 10
 	# spire_height_a = city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['spire']"}[0][1].gsub("[",'').gsub("]",'').split(',')
 	# roof_height_a = city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['roof']"}[0][1].gsub("[",'').gsub("]",'').split(',')
 
-	n += 1
 
 end
 
@@ -54,7 +62,7 @@ city_name_a = city_name_aa.flatten
 building_id_a = building_id_aa.flatten
 building_name_a = building_name_aa.flatten
 
-# Pry.start(binding)
+Pry.start(binding)
 
 i = 0 
 	buildings = []

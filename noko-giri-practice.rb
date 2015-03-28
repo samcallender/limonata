@@ -5,7 +5,7 @@ require 'Pry'
 
 
 
-city = HTTParty.get('http://skyscraperpage.com/diagrams/?cityID=8a')
+city = HTTParty.get('http://skyscraperpage.com/diagrams/?cityID=4')
 
 city_rdom = Nokogiri::HTML(city)
 
