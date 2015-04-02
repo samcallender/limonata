@@ -16,6 +16,7 @@
 
 //= require underscore
 //= require backbone
+//= require d3 
 
 //= require backbone/models/building
 //= require backbone/views/building-view
