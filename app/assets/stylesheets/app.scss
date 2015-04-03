@@ -1,0 +1,47 @@
+body {
+	background: grey;
+}
+
+$seattle: #94d31b;
+$newyork: #200505;
+$chicago: #FFE9D2;
+
+.clear {
+	clear: both;
+	float: none;
+}
+
+.city-display {
+	float: left;
+	margin: 10px 10px 10px 10px;
+}
+
+
+.seattle {
+	fill: $seattle;
+}
+
+.newyorkcity {
+	fill: $newyork;
+	display: inline-block;
+}
+
+.chicago {
+	fill: $chicago;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+.hide {
+	display: none;
+}
