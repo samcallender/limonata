@@ -5,29 +5,66 @@ body {
 $seattle: #94d31b;
 $newyork: #200505;
 $chicago: #FFE9D2;
+$focus: #FFFFFF;
 
 .clear {
 	clear: both;
 	float: none;
 }
 
+#building-data {
+	margin: 0 auto;
+	/*margin-top: 10px;*/
+	/*padding-top: 20px;*/
+	width: 85%;
+	/*border: 1px solid black;*/
+	/*background-color: #e6e6e6;*/
+}
+
 .city-display {
 	float: left;
 	margin: 10px 10px 10px 10px;
-}
+	cursor: pointer;
 
-
-.seattle {
-	fill: $seattle;
+	font-weight: bold;
 }
 
 .newyorkcity {
 	fill: $newyork;
-	display: inline-block;
+	cursor: pointer;
+
+	&:hover {
+	fill: $focus;
+	}	
+}
+
+.seattle {
+	fill: $seattle;
+	cursor: pointer;
+	
+	&:hover {
+		fill: $focus;
+	}	
 }
 
 .chicago {
 	fill: $chicago;
+	cursor: pointer;
+		&:hover {
+		fill: $focus;
+	}
+}
+
+#newyorkcity {
+	color: $newyork;
+}
+
+#seattle {
+	color: $seattle;
+}
+
+#chicago {
+	color: $chicago;	
 }
 
 .axis path,

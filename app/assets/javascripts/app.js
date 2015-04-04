@@ -47,11 +47,10 @@ $(function() {
 
 			var canvas = d3.select("#building-data")
 				.append("svg")
-				.attr("width", 1200)
-				.attr("height", 700)
+				.attr("width", 1300)
+				.attr("height", 800)
 				// .append("g")
-				.append("g")
-				.attr("fill", "black");
+				.append("g");
 
 			var xAxis = d3.svg.axis()
 				.scale(xScale)
@@ -60,9 +59,9 @@ $(function() {
 
 			var yAxis = d3.svg.axis()
 				.scale(yScale)
-				.orient("left")
+				.orient("right")
 				.ticks(10);
-
+// ADD AXIS
 			canvas.append("svg:g")
 				.attr("class", "x axis")
 				.attr('transform', 'translate(0,'+ (700 - padding) + ')')
@@ -70,9 +69,14 @@ $(function() {
 
 			canvas.append("svg:g")
 				.attr("class", "y axis")
-				.attr('transform', 'translate(' +(1200 - padding) + ', 0)')
+				// .attr('transform', 'translate(' +(1200 - padding) + ', 0)')
+				.attr('transform', 'translate(0, 0)')
 				.call(yAxis);
 
+// ADD AXIS LABELS
+
+
+// ADD CIRCLES FOR DATA POINTS
 			canvas.selectAll("circle")
 				.data(data)
 				.enter()
@@ -85,11 +89,18 @@ $(function() {
 				})
 				.attr("fill", "black")
 				.attr("r", 3)
+				.on("click", function(d){
+					var url = "http://skyscraperpage.com/cities/?buildingID=";
+					var buildingID = d[4].toString();	
+					window.open(url+buildingID, "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=700, height=700");
+				})
+				.on("mouseover", growCircle)
+				.on("mouseout", shrinkCircle)
 				.attr("class", function(d){
 					return d[3].toLowerCase().replace(/\s+/g, '');
 				});
 
-
+// ADD TEXT FOR DATA POINTS
 			canvas.selectAll("text")
 				.data(data)
 				.enter()
@@ -106,14 +117,64 @@ $(function() {
 				.attr("font-family", "sans-serif")
    				.attr("font-size", "10px")
    				.attr("fill", "red")
+   				.on("click", function(d){
+					var url = "http://skyscraperpage.com/cities/?buildingID=";
+					var buildingID = d[4].toString();	
+					window.open(url+buildingID, "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=700, height=700");
+				})
    				.attr("class", function(d){
+   					// var buildingID = d[4].toString();
    					return d[3].toLowerCase().replace(/\s+/g, '');
-   				});   				
+   					// return d[3].toLowerCase().replace(/\s+/g, '') + ' another-class';
+
+   				})
+   				.on("mouseover", growFont)
+   				.on("mouseout", shrinkFont);   				
 
 		}
 	})
 })
 }
+
+var growCircle = function() {
+	d3.select(this).transition()
+        .duration(300)
+        .attr("r", 10);	
+}
+
+var shrinkCircle = function() {
+	d3.select(this).transition()
+		.duration(300)
+		.attr("r", 3);
+}
+
+var growFont = function() {
+	d3.select(this).transition()
+		.duration(300)
+		.attr("font-size", "30px");
+
+}
+
+var shrinkFont = function() {
+	d3.select(this).transition()
+		.duration(300)
+		.attr("font-size", "10px");
+}
+
+
+// var cityToggle = function(){
+// 	$('.city-display').on('click', function(){
+// 		var city = this.id
+// 		var markers = $('.'+city)
+// 		if(markers.attr('class').indexOf('hide') > 0){
+// 			markers.attr('class', city)
+// 		}
+// 		else{			
+// 			markers.attr("class", city + ' hide')
+// 		}
+// 	})
+// }
+
 
 var cityToggle = function(){
 	$('.city-display').on('click', function(){
@@ -121,9 +182,17 @@ var cityToggle = function(){
 		var markers = $('.'+city)
 		if(markers.attr('class').indexOf('hide') > 0){
 			markers.attr('class', city)
+			markers.animate({
+				opacity: 1
+			}, 500);
 		}
 		else{			
-			markers.attr("class", city + ' hide')
+			// markers.attr("class", city + ' hide')
+			markers.animate({
+				opacity: 0
+			}, 500, function(){
+				markers.attr("class", city + ' hide')
+			});
 		}
 	})
 }
