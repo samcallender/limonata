@@ -63,16 +63,19 @@ select_diagrams_h = {
 	# '67929680' => 'Madrid',
 	# '67929686' => 'Tel Aviv',
 	# '67929695' => 'Mumbai',
-	# # US city diagrams
+# USA diagrams
+
 	# '67919362' => 'Los Angeles',
 	'67919387' => 'Chicago',
 	# '67919405' => 'Dallas',
 	# '67919428' => 'Houston',
-	# '67919438' => 'Philadelphia',
+	# '67919438' => 'Philadelphia', 
+
 	# '67919674' => 'Miami',
+
 	# '67919314' => 'Atlanta',
 	# '67919665' => 'Boston',
-	# '67919769' => 'San Francisco',
+	'67919769' => 'San Francisco',
 	# '67919774' => 'Austin',
 	# '67919787' => 'Portland',
 	# '67919799' => 'San Diego',
@@ -89,7 +92,7 @@ select_diagrams_h = {
 	# '67919682' => 'New Orleans',
 	'67908320' => 'Seattle',
 	'67906779' => 'New York'
-	# nyc timeline:
+	# nyc timeline
 	# '67920028' => 'nyc timeline'
 	}
 
@@ -170,20 +173,21 @@ spire_height_a = spire_height_aa.flatten
 roof_height_a = roof_height_aa.flatten
 
 
+# OPTIONAL STEP  TO GRAB ADDRESSES FROM BUILDING DETAIL PAGES:
 
-building_id_a.each do |id|
-	ids = id.to_s	
-	bldg = HTTParty.get('http://skyscraperpage.com/cities/?buildingID='+ids)
+# building_id_a.each do |id|
+# 	ids = id.to_s	
+# 	bldg = HTTParty.get('http://skyscraperpage.com/cities/?buildingID='+ids)
 
-	bldg_rdom = Nokogiri::HTML(bldg)
+# 	bldg_rdom = Nokogiri::HTML(bldg)
 
-	bldg_med = bldg_rdom.css('.med')
+# 	bldg_med = bldg_rdom.css('.med')
 
-	building_address = bldg_med[5].child.child.to_s.gsub('<br>',' ').gsub('<td>', '').gsub("\n</td>", "")[0...-1]
+# 	building_address = bldg_med[5].child.child.to_s.gsub('<br>',' ').gsub('<td>', '').gsub("\n</td>", "")[0...-1]
 
-	building_address_a.push(building_address)
+# 	building_address_a.push(building_address)
 
-end
+# end
 
 # Pry.start(binding)
 
@@ -227,27 +231,29 @@ end
 
 Pry.start(binding)
 
-Building.delete_all
+# Building.delete_all
 
-buildings.each do |b|
-	Building.create({
-	building_id: b["building_id"],	
-	building_name: b["building_name"],
-	city_name: b["city_name"],
-	image_width: b["image_width"],
-	image_height: b["image_height"],
-	drawing_id: b["drawing_id"],
-	city_id: b["city_id"],
-	state_id: b["state_id"],
-	state_abbreviation: b["state_abbreviation"],
-	country_name: b["country_name"],
-	status_id: b["state_id"],
-	status: b["status"],
-	finished: b["finished"],
-	floors: b["floors"],
-	building_use: b["building_use"],
-	antenna_height: b["antenna_height"],
-	spire_height: b["spire_height"],
-	roof_height: b["roof_height"]
-	})
-end		
+# buildings.each do |b|
+# 	Building.create({
+# 	building_id: b["building_id"],	
+# 	building_name: b["building_name"],
+# 	city_name: b["city_name"],
+# 	image_width: b["image_width"],
+# 	image_height: b["image_height"],
+# 	drawing_id: b["drawing_id"],
+# 	city_id: b["city_id"],
+# 	state_id: b["state_id"],
+# 	state_abbreviation: b["state_abbreviation"],
+# 	country_name: b["country_name"],
+# 	status_id: b["state_id"],
+# 	status: b["status"],
+# 	finished: b["finished"],
+# 	floors: b["floors"],
+# 	building_use: b["building_use"],
+# 	antenna_height: b["antenna_height"],
+# 	spire_height: b["spire_height"],
+# 	roof_height: b["roof_height"]
+# 	})
+# end		
+
+

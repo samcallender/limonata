@@ -1,15 +1,3 @@
-// $(function(){
-//   var buildings = window.buildings = new BuildingCollection();
-//   buildings.fetch({
-//     success: function(){
-//       var buildingsView = new BuildingCollectionView({
-//         collection: buildings
-//       })
-//     } 
-//   });
-// })
-// ^backbone stuff above that I want to keep
-
 var makeGraph = function(){
 $(function() {
 	$.ajax({
@@ -42,16 +30,18 @@ $(function() {
 				.range([10, 1000]);
 
 			var yScale = d3.scale.linear()
-				.domain([minHeight, maxHeight])
+				.domain([minHeight, maxHeight + 50])
 				.range([680, 10]);	
 
 			var canvas = d3.select("#building-data")
 				.append("svg")
 				.attr("width", 1300)
-				.attr("height", 800)
+				.attr("height", 700)
+				.attr("fill", "white")
 				// .append("g")
 				.append("g");
 
+// ADD AXIS
 			var xAxis = d3.svg.axis()
 				.scale(xScale)
 				.orient("bottom")
@@ -61,7 +51,7 @@ $(function() {
 				.scale(yScale)
 				.orient("right")
 				.ticks(10);
-// ADD AXIS
+
 			canvas.append("svg:g")
 				.attr("class", "x axis")
 				.attr('transform', 'translate(0,'+ (700 - padding) + ')')
@@ -74,6 +64,22 @@ $(function() {
 				.call(yAxis);
 
 // ADD AXIS LABELS
+
+// ADD MONSTERS!
+   			// canvas.append("svg:image")
+   			// 	.attr("xlink:href", "/images/godzilla.svg")
+   			// 	.attr("x", 100)
+   			// 	.attr("y", 100)
+   			// 	.attr("height", 100)
+   			// 	.attr("width", 100)
+   			// 	.attr("fill", "red");
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/mRtDs6J.png")
+   				.attr("x", 800)
+   				.attr("y", 500)
+   				.attr("height", 200)
+   				.attr("width", 200)
+   				.attr("fill", "red");
 
 
 // ADD CIRCLES FOR DATA POINTS
@@ -96,8 +102,10 @@ $(function() {
 				})
 				.on("mouseover", growCircle)
 				.on("mouseout", shrinkCircle)
+				.attr("opacity", 0)
 				.attr("class", function(d){
-					return d[3].toLowerCase().replace(/\s+/g, '');
+					// return d[3].toLowerCase().replace(/\s+/g, '');
+					return d[3].toLowerCase().replace(/\s+/g, '') + ' hide';
 				});
 
 // ADD TEXT FOR DATA POINTS
@@ -109,13 +117,13 @@ $(function() {
 					return d[2];
 				})
 				.attr("x", function(d){
-					return xScale(d[0]);
+					return xScale(d[0]+1);
 				})
 				.attr("y", function(d) {
-					return yScale(d[1]);
+					return yScale(d[1]-2);
 				})
 				.attr("font-family", "sans-serif")
-   				.attr("font-size", "10px")
+   				.attr("font-size", "4px")
    				.attr("fill", "red")
    				.on("click", function(d){
 					var url = "http://skyscraperpage.com/cities/?buildingID=";
@@ -124,12 +132,13 @@ $(function() {
 				})
    				.attr("class", function(d){
    					// var buildingID = d[4].toString();
-   					return d[3].toLowerCase().replace(/\s+/g, '');
-   					// return d[3].toLowerCase().replace(/\s+/g, '') + ' another-class';
+   					// return d[3].toLowerCase().replace(/\s+/g, '');
+   					return d[3].toLowerCase().replace(/\s+/g, '') + ' hide';
 
    				})
+   				.attr("opacity", 0)
    				.on("mouseover", growFont)
-   				.on("mouseout", shrinkFont);   				
+   				.on("mouseout", shrinkFont);
 
 		}
 	})
@@ -157,10 +166,37 @@ var growFont = function() {
 
 var shrinkFont = function() {
 	d3.select(this).transition()
-		.duration(300)
-		.attr("font-size", "10px");
+		.duration(1000)
+		.attr("font-size", "4px");
 }
 
+
+var cityToggle = function(){
+	$('.city-display').on('click', function(){
+		var city = this.id
+		var markers = $('.'+city)
+		if(markers.attr('class').indexOf('hide') > 0){
+			markers.attr('class', city)
+			markers.animate({
+				opacity: 1
+			}, 400);
+		}
+		else{			
+			// markers.attr("class", city + ' hide')
+			markers.animate({
+				opacity: 0
+			}, 400, function(){
+				markers.attr("class", city + ' hide')
+			});
+		}
+	})
+}
+
+
+window.onload = function(){
+	makeGraph();
+	cityToggle();	
+}
 
 // var cityToggle = function(){
 // 	$('.city-display').on('click', function(){
@@ -174,35 +210,6 @@ var shrinkFont = function() {
 // 		}
 // 	})
 // }
-
-
-var cityToggle = function(){
-	$('.city-display').on('click', function(){
-		var city = this.id
-		var markers = $('.'+city)
-		if(markers.attr('class').indexOf('hide') > 0){
-			markers.attr('class', city)
-			markers.animate({
-				opacity: 1
-			}, 500);
-		}
-		else{			
-			// markers.attr("class", city + ' hide')
-			markers.animate({
-				opacity: 0
-			}, 500, function(){
-				markers.attr("class", city + ' hide')
-			});
-		}
-	})
-}
-
-window.onload = function(){
-	makeGraph();
-	cityToggle();
-	
-}
-
 
 // var toggleNewYork = function(){
 // 	var display =  $('.York').attr("display")
@@ -267,3 +274,15 @@ window.onload = function(){
 // 		$('.Seattle').attr("class", "hide");
 // 	})
 // }
+
+// $(function(){
+//   var buildings = window.buildings = new BuildingCollection();
+//   buildings.fetch({
+//     success: function(){
+//       var buildingsView = new BuildingCollectionView({
+//         collection: buildings
+//       })
+//     } 
+//   });
+// })
+// ^backbone stuff above that I want to keep

@@ -1,11 +1,28 @@
-body {
-	background: grey;
-}
+/*font-family: 'Squada One', cursive;
+font-family: 'Audiowide', cursive;
+font-family: 'Playball', cursive;*/
 
+/*Colors*/
+$background: #5c5a5a;
 $seattle: #94d31b;
 $newyork: #200505;
 $chicago: #FFE9D2;
 $focus: #FFFFFF;
+
+/*fonts*/
+$seattlefont: 'Audiowide';  
+$newyorkfont: 'Squada One'; 
+$chicagofont: 'Playball';
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body {
+	background: $background;
+}
 
 .clear {
 	clear: both;
@@ -13,6 +30,7 @@ $focus: #FFFFFF;
 }
 
 #building-data {
+	float: left;
 	margin: 0 auto;
 	/*margin-top: 10px;*/
 	/*padding-top: 20px;*/
@@ -21,16 +39,22 @@ $focus: #FFFFFF;
 	/*background-color: #e6e6e6;*/
 }
 
-.city-display {
+#city-options {
 	float: left;
-	margin: 10px 10px 10px 10px;
+}
+
+.city-display {
+	/*float: left;*/
+	margin: 0px 5px 0px 0px;
 	cursor: pointer;
 
-	font-weight: bold;
+	/*font-weight: bold;*/
+	font-size: 20px;
 }
 
 .newyorkcity {
 	fill: $newyork;
+	font-family: $newyorkfont;
 	cursor: pointer;
 
 	&:hover {
@@ -40,6 +64,7 @@ $focus: #FFFFFF;
 
 .seattle {
 	fill: $seattle;
+	font-family: $seattlefont;
 	cursor: pointer;
 	
 	&:hover {
@@ -49,6 +74,7 @@ $focus: #FFFFFF;
 
 .chicago {
 	fill: $chicago;
+	font-family: $chicagofont;
 	cursor: pointer;
 		&:hover {
 		fill: $focus;
@@ -57,14 +83,18 @@ $focus: #FFFFFF;
 
 #newyorkcity {
 	color: $newyork;
+	font-family: $newyorkfont;
+	font-size: 30px;
 }
 
 #seattle {
 	color: $seattle;
+	font-family: $seattlefont;
 }
 
 #chicago {
-	color: $chicago;	
+	color: $chicago;
+	font-family: $chicagofont;	
 }
 
 .axis path,
