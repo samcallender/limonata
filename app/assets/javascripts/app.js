@@ -24,7 +24,6 @@ $(function() {
 
 			var padding = 20;
 
-
 			var xScale = d3.scale.linear()
 				.domain([minYear, 2030])
 				.range([10, 1000]);
@@ -65,23 +64,162 @@ $(function() {
 
 // ADD AXIS LABELS
 
-// ADD MONSTERS!
-   			// canvas.append("svg:image")
-   			// 	.attr("xlink:href", "/images/godzilla.svg")
-   			// 	.attr("x", 100)
-   			// 	.attr("y", 100)
-   			// 	.attr("height", 100)
-   			// 	.attr("width", 100)
-   			// 	.attr("fill", "red");
+// ADD CLOUDS
+// <a href="http://imgur.com/ScIgBRP"><img src="http://i.imgur.com/ScIgBRP.png" title="source: imgur.com" /></a>
+   			
+			var cloudPositions = [[100,100], [125, 75]];
+
    			canvas.append("svg:image")
-   				.attr("xlink:href", "http://i.imgur.com/mRtDs6J.png")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 100)
+   				.attr("y", 100)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 150)
+   				.attr("y", 75)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 200)
+   				.attr("y", 100)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 250)
+   				.attr("y", 75)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 300)
+   				.attr("y", 100)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);   				
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 350)
+   				.attr("y", 75)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 400)
+   				.attr("y", 100)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);     	
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 450)
+   				.attr("y", 75)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 500)
+   				.attr("y", 100)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 550)
+   				.attr("y", 75)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 600)
+   				.attr("y", 100)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+   			
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 650)
+   				.attr("y", 75)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 700)
+   				.attr("y", 100)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 750)
+   				.attr("y", 75)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
    				.attr("x", 800)
-   				.attr("y", 500)
-   				.attr("height", 200)
-   				.attr("width", 200)
-   				.attr("fill", "red");
+   				.attr("y", 100)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
 
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 850)
+   				.attr("y", 75)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);  
 
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 900)
+   				.attr("y", 100)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50); 
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 950)
+   				.attr("y", 75)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
+
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+   				.attr("x", 1000)
+   				.attr("y", 100)
+   				.attr("height", 50)
+   				.attr("class", "cloud")
+   				.attr("width", 50);
 // ADD CIRCLES FOR DATA POINTS
 			canvas.selectAll("circle")
 				.data(data)
@@ -94,7 +232,7 @@ $(function() {
 					return yScale(d[1]);
 				})
 				.attr("fill", "black")
-				.attr("r", 3)
+				.attr("r", 5)
 				.on("click", function(d){
 					var url = "http://skyscraperpage.com/cities/?buildingID=";
 					var buildingID = d[4].toString();	
@@ -107,7 +245,6 @@ $(function() {
 					// return d[3].toLowerCase().replace(/\s+/g, '');
 					return d[3].toLowerCase().replace(/\s+/g, '') + ' hide';
 				});
-
 // ADD TEXT FOR DATA POINTS
 			canvas.selectAll("text")
 				.data(data)
@@ -139,11 +276,49 @@ $(function() {
    				.attr("opacity", 0)
    				.on("mouseover", growFont)
    				.on("mouseout", shrinkFont);
+// ADD MONSTERS!
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/mRtDs6J.png")
+   				.attr("x", 800)
+   				.attr("y", 500)
+   				.attr("height", 200)
+   				.attr("width", 200)
+   				.attr("class", "godzilla hide")
+   				// .attr("class", "godzilla hide")
+   				.attr("opacity", 0)
+   				.on("click", goGoGodzilla);
 
+   			canvas.append("svg:image")
+   				.attr("xlink:href", "http://i.imgur.com/UsFz2mZ.png")
+   				.attr("x", 610)
+   				.attr("y", 630)
+   				.attr("height", 50)
+   				.attr("width", 50)
+   				.attr("class", "staypuft hide")
+   				.attr("opacity", 0)
+   				.on("click", goGoGodzilla);
 		}
 	})
 })
 }
+
+// var floatClouds = function{
+//    for (i = 0; i < 5; i++) {
+//       d3.select(this).transition()
+//          .duration(2000)
+//          .attr("x", -50);
+//    }
+// }
+
+// ANIMATIONS - MONSTERS
+var goGoGodzilla = function() {
+	d3.select(this).transition()
+		.duration(5000)
+		.attr("x", 100)
+   	.attr("y", 500);
+}
+
+// ANIMATIONS - CITIES
 
 var growCircle = function() {
 	d3.select(this).transition()
@@ -154,7 +329,7 @@ var growCircle = function() {
 var shrinkCircle = function() {
 	d3.select(this).transition()
 		.duration(300)
-		.attr("r", 3);
+		.attr("r", 5);
 }
 
 var growFont = function() {
@@ -173,6 +348,7 @@ var shrinkFont = function() {
 
 var cityToggle = function(){
 	$('.city-display').on('click', function(){
+		console.log(this.id)
 		var city = this.id
 		var markers = $('.'+city)
 		if(markers.attr('class').indexOf('hide') > 0){
@@ -193,9 +369,44 @@ var cityToggle = function(){
 }
 
 
+var summon = function(){
+	$('.monster-display').on('click', function(){
+		var monsterID = this.id
+		var monster = $('.'+monsterID)
+		if(monster.attr('class').indexOf('hide') > 0){
+			monster.attr('class', monsterID)
+			monster.animate({
+				opacity: 1
+			}, 400);
+		}
+		else{			
+			// markers.attr("class", city + ' hide')
+			monster.animate({
+				opacity: 0
+			}, 400, function(){
+				monster.attr("class", monsterID + ' hide')
+			});
+		}
+	})
+}
+
+
+// var summon = function() {
+// 	$('.monster-display').on('click', function(){
+// 	console.log(this.id)
+// 	var monsterID = this.id
+// 	var monster = $('.'+monsterID)
+// 	 monster.animate({
+// 		opacity: 1
+// 	}, 400);		
+// 	})
+// }
+
 window.onload = function(){
 	makeGraph();
-	cityToggle();	
+	cityToggle();
+	summon();
+   // floatClouds();	
 }
 
 // var cityToggle = function(){

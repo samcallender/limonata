@@ -45,37 +45,22 @@ select_diagrams_h = {
 	# '203' => 'World Ten Skyscraper Tallest 2015',
 	# '205' => 'World Talltest Skyscraper Title Holders',
 	# '206' => "World Tallest By Spire",
-	# # INTERNATIONAL CITY
-	# '67919160' => 'Toronto',
-	# '67929489' => 'Hong Kong',
-	# '67929711' => 'Shanghai',
-	# '67929510' => 'London',
-	# '67929519' => 'Mexico City',
-	# '67929533' => 'Tokyo',
-	# '67929543' => 'Jakarta',
-	# '67929564' => 'Seoul',
-	# '67929569' => 'Buenos Aires',
-	# '67929586' => 'Sao Paulo',
-	# '67929601' => 'Moscow',
-	# '67929620' => 'Sydney',
-	# '67929630' => 'Kuala Lumpur',
-	# '67929646' => 'Frankfurt',
-	# '67929680' => 'Madrid',
-	# '67929686' => 'Tel Aviv',
-	# '67929695' => 'Mumbai',
-# USA diagrams
 
-	# '67919362' => 'Los Angeles',
+
+# USA diagrams
+	# working group
+	'67906779' => 'New York',
 	'67919387' => 'Chicago',
+	'67908320' => 'Seattle',
+	'67919769' => 'San Francisco',
+	# '67919362' => 'Los Angeles',
+	# '67919438' => 'Philadelphia' 
+	# '67919314' => 'Atlanta'
+
+	# '67919665' => 'Boston',
+	# '67919674' => 'Miami',
 	# '67919405' => 'Dallas',
 	# '67919428' => 'Houston',
-	# '67919438' => 'Philadelphia', 
-
-	# '67919674' => 'Miami',
-
-	# '67919314' => 'Atlanta',
-	# '67919665' => 'Boston',
-	'67919769' => 'San Francisco',
 	# '67919774' => 'Austin',
 	# '67919787' => 'Portland',
 	# '67919799' => 'San Diego',
@@ -90,10 +75,31 @@ select_diagrams_h = {
 	# '67919701' => 'Nashville',
 	# '67919933' => 'Washington DC',
 	# '67919682' => 'New Orleans',
-	'67908320' => 'Seattle',
-	'67906779' => 'New York'
 	# nyc timeline
 	# '67920028' => 'nyc timeline'
+
+		# # INTERNATIONAL CITY
+	# '67985207' => 'Dubai',
+	# dubai only has 3 pages
+	# '67929489' => 'Hong Kong',
+	# '67929711' => 'Shanghai',
+	# '67929564' => 'Seoul',
+	# '67919160' => 'Toronto',
+	# '67929510' => 'London',
+	# '67929533' => 'Tokyo',
+	# '67929543' => 'Jakarta',
+	# '67985192' => 'Taipei',
+	# '67929620' => 'Sydney',
+	# '67929630' => 'Kuala Lumpur',
+	# '67929695' => 'Mumbai'
+
+	# '67929519' => 'Mexico City',
+	# '67929569' => 'Buenos Aires',
+	# '67929586' => 'Sao Paulo',
+	# '67929601' => 'Moscow',
+	# '67929646' => 'Frankfurt',
+	# '67929680' => 'Madrid',
+	# '67929686' => 'Tel Aviv',
 	}
 
 # scrapes the first page of each city search page
@@ -229,31 +235,31 @@ while i < building_id_a.length
 	i += 1
 end
 
-Pry.start(binding)
+# Pry.start(binding)
 
-# Building.delete_all
+Building.delete_all
 
-# buildings.each do |b|
-# 	Building.create({
-# 	building_id: b["building_id"],	
-# 	building_name: b["building_name"],
-# 	city_name: b["city_name"],
-# 	image_width: b["image_width"],
-# 	image_height: b["image_height"],
-# 	drawing_id: b["drawing_id"],
-# 	city_id: b["city_id"],
-# 	state_id: b["state_id"],
-# 	state_abbreviation: b["state_abbreviation"],
-# 	country_name: b["country_name"],
-# 	status_id: b["state_id"],
-# 	status: b["status"],
-# 	finished: b["finished"],
-# 	floors: b["floors"],
-# 	building_use: b["building_use"],
-# 	antenna_height: b["antenna_height"],
-# 	spire_height: b["spire_height"],
-# 	roof_height: b["roof_height"]
-# 	})
-# end		
+buildings.each do |b|
+	Building.create({
+	building_id: b["building_id"],	
+	building_name: b["building_name"],
+	city_name: b["city_name"],
+	image_width: b["image_width"],
+	image_height: b["image_height"],
+	drawing_id: b["drawing_id"],
+	city_id: b["city_id"],
+	state_id: b["state_id"],
+	state_abbreviation: b["state_abbreviation"],
+	country_name: b["country_name"],
+	status_id: b["state_id"],
+	status: b["status"],
+	finished: b["finished"],
+	floors: b["floors"],
+	building_use: b["building_use"],
+	antenna_height: b["antenna_height"],
+	spire_height: b["spire_height"],
+	roof_height: b["roof_height"]
+	})
+end		
 
 

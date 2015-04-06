@@ -1,18 +1,31 @@
 /*font-family: 'Squada One', cursive;
 font-family: 'Audiowide', cursive;
 font-family: 'Playball', cursive;*/
+/*font-family: 'Offside', cursive;*/
+/*font-family: 'Martel Sans', sans-serif;*/
 
 /*Colors*/
 $background: #5c5a5a;
+$mainfont: #e6e6e6;
+$menubackground: #8c897e;
+
+$focus: #FFFFFF;
+
 $seattle: #94d31b;
 $newyork: #200505;
 $chicago: #FFE9D2;
-$focus: #FFFFFF;
+$sf: #A0B5D9;
+
 
 /*fonts*/
+$primary: 'Martel Sans';
+
 $seattlefont: 'Audiowide';  
 $newyorkfont: 'Squada One'; 
 $chicagofont: 'Playball';
+$sffont: 'Offside';
+
+$monstersfont: 'courier';
 
 * {
   margin: 0;
@@ -22,11 +35,28 @@ $chicagofont: 'Playball';
 
 body {
 	background: $background;
+	color: $mainfont;
+	h2 {
+		/*font-family: $primary;*/
+	}
+
+	p {
+		/*font-family: $primary;*/
+	}
+
 }
 
 .clear {
 	clear: both;
 	float: none;
+}
+
+#logo {
+	max-width: 150px;
+	display: block;
+
+	margin: 0 auto;
+	padding: 30px 0px 20px 0px;
 }
 
 #building-data {
@@ -39,17 +69,59 @@ body {
 	/*background-color: #e6e6e6;*/
 }
 
-#city-options {
+#menu {
 	float: left;
+	/*padding-left: 10px;*/
+
+	height: 680px;
+	/*min-height: 100%;*/
+
+	background-color: $menubackground;
+
+	h2 {
+		text-align: center;
+		font-size: 16px;
+		margin: 10px 0px 10px 0;
+
+		font-family: $primary;
+	} 
+}
+
+#city-options {
+	margin: 10 0 10 0;
+}
+
+#monster-options {
+	margin: 10 0 10 0;
 }
 
 .city-display {
 	/*float: left;*/
-	margin: 0px 5px 0px 0px;
+	/*margin: 5px 5px 5px 2px;*/
+	padding: 5px 5px 5px 10px;
 	cursor: pointer;
+	font-size: 24px;
 
-	/*font-weight: bold;*/
-	font-size: 20px;
+	p {
+		padding-left: 1px;
+	}
+
+	&:hover {
+		background-color: $focus;
+	}
+}
+
+.monster-display {
+	padding: 2px 5px 2px 10px;
+	cursor: pointer;
+	p {
+		font-family: $monstersfont;
+		color: black;
+	}
+
+	&:hover {
+		background-color: $focus;
+	}
 }
 
 .newyorkcity {
@@ -58,7 +130,7 @@ body {
 	cursor: pointer;
 
 	&:hover {
-	fill: $focus;
+		fill: $focus;
 	}	
 }
 
@@ -69,6 +141,7 @@ body {
 	
 	&:hover {
 		fill: $focus;
+		/*z-index: top;*/
 	}	
 }
 
@@ -79,6 +152,15 @@ body {
 		&:hover {
 		fill: $focus;
 	}
+}
+
+.sanfrancisco {
+	fill: $sf;
+	font-family: $sffont;
+	cursor: pointer;
+		&:hover {
+			fill: $focus;
+		}
 }
 
 #newyorkcity {
@@ -95,6 +177,11 @@ body {
 #chicago {
 	color: $chicago;
 	font-family: $chicagofont;	
+}
+
+#sanfrancisco {
+	color: $sf;
+	font-family: $sffont;
 }
 
 .axis path,
