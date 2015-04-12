@@ -48,13 +48,17 @@ select_diagrams_h = {
 
 
 # USA diagrams
-	# working group
-	'67906779' => 'New York',
-	'67919387' => 'Chicago',
-	'67908320' => 'Seattle',
-	'67919769' => 'San Francisco',
-	# '67919362' => 'Los Angeles',
+	# sprint 1 group
+	# '67906779' => 'New York',
+	# '67919387' => 'Chicago',
+	# '67908320' => 'Seattle',
+	# '67919769' => 'San Francisco',
+
+	# sprint 2 group
+	# '67919362' => 'Los Angeles'
 	# '67919438' => 'Philadelphia' 
+
+
 	# '67919314' => 'Atlanta'
 
 	# '67919665' => 'Boston',
@@ -230,36 +234,36 @@ while i < building_id_a.length
 	h["spire_height"] = spire_height_a[i].to_f
 	h["roof_height"] = roof_height_a[i].to_f
 
-	h["building_address"] = building_address_a[i]
+	# h["building_address"] = building_address_a[i]
 
 	i += 1
 end
 
-# Pry.start(binding)
+Pry.start(binding)
 
-Building.delete_all
+# Building.delete_all
 
-buildings.each do |b|
-	Building.create({
-	building_id: b["building_id"],	
-	building_name: b["building_name"],
-	city_name: b["city_name"],
-	image_width: b["image_width"],
-	image_height: b["image_height"],
-	drawing_id: b["drawing_id"],
-	city_id: b["city_id"],
-	state_id: b["state_id"],
-	state_abbreviation: b["state_abbreviation"],
-	country_name: b["country_name"],
-	status_id: b["state_id"],
-	status: b["status"],
-	finished: b["finished"],
-	floors: b["floors"],
-	building_use: b["building_use"],
-	antenna_height: b["antenna_height"],
-	spire_height: b["spire_height"],
-	roof_height: b["roof_height"]
-	})
-end		
+# buildings.each do |b|
+# 	Building.create({
+# 	building_id: b["building_id"],	
+# 	building_name: b["building_name"],
+# 	city_name: b["city_name"],
+# 	image_width: b["image_width"],
+# 	image_height: b["image_height"],
+# 	drawing_id: b["drawing_id"],
+# 	city_id: b["city_id"],
+# 	state_id: b["state_id"],
+# 	state_abbreviation: b["state_abbreviation"],
+# 	country_name: b["country_name"],
+# 	status_id: b["state_id"],
+# 	status: b["status"],
+# 	finished: b["finished"],
+# 	floors: b["floors"],
+# 	building_use: b["building_use"],
+# 	antenna_height: b["antenna_height"],
+# 	spire_height: b["spire_height"],
+# 	roof_height: b["roof_height"]
+# 	})
+# end		
 
 
