@@ -5,16 +5,22 @@ font-family: 'Playball', cursive;*/
 /*font-family: 'Martel Sans', sans-serif;*/
 
 /*Colors*/
-$background: #5c5a5a;
-$mainfont: #e6e6e6;
-$menubackground: #8c897e;
+/*$background: #5c5a5a;
+$menubackground: #8c897e;*/
 
+$background: #8c897e;
+$menubackground: #5c5a5a;
+
+
+$mainfont: #e6e6e6;
 $focus: #FFFFFF;
 
 $seattle: #94d31b;
 $newyork: #200505;
 $chicago: #FFE9D2;
 $sf: #A0B5D9;
+$la: #9C273B;
+$philly: #004c54;
 
 
 /*fonts*/
@@ -163,6 +169,26 @@ body {
 		}
 }
 
+
+.losangeles {
+	fill: $la;
+	font-family: $seattlefont;
+	cursor: pointer;
+		&:hover {
+			fill: $focus;
+		}
+}
+
+.philadelphia {
+	fill: $philly;
+	font-family: $chicagofont;
+	cursor: pointer;
+		&:hover {
+			fill: $focus;
+		}
+}
+
+
 #newyorkcity {
 	color: $newyork;
 	font-family: $newyorkfont;
@@ -184,11 +210,25 @@ body {
 	font-family: $sffont;
 }
 
+#losangeles {
+	color: $la;
+	font-family: $seattlefont;
+}
+
+#philadelphia {
+	color: $philly;
+	font-family: $chicagofont;	
+}
+
 .axis path,
 .axis line {
     fill: none;
     stroke: black;
     shape-rendering: crispEdges;
+}
+
+.cloud {
+
 }
 
 .axis text {
