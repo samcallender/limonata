@@ -227,12 +227,14 @@ body {
     shape-rendering: crispEdges;
 }
 
-.cloud {
-
-}
-
 .axis text {
     font-family: sans-serif;
+    font-size: 11px;
+}
+
+.label {
+	fill: black;
+	font-family: sans-serif;
     font-size: 11px;
 }
 

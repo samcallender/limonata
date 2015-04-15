@@ -41,9 +41,14 @@ var makeGraph = function(){
    				.append("g");
 
    // ADD AXIS
+
+           
+           
+
    			var xAxis = d3.svg.axis()
    				.scale(xScale)
    				.orient("bottom")
+               .tickFormat(d3.format("d"))
    				.ticks(10);
 
    			var yAxis = d3.svg.axis()
@@ -62,6 +67,25 @@ var makeGraph = function(){
    				.attr('transform', 'translate(0, 0)')
    				.call(yAxis);
 
+            canvas.append("text")
+               .attr("class", "y label axis")
+               .attr("text-anchor", "end")
+               .attr("y", 25)
+               .attr("x", - 265)
+               .attr("dy", "1.5em")
+               .attr("transform", "rotate(-90)")
+               .text("Building Height (meters)");
+
+
+            canvas.append("text")
+               .attr("class", "x label axis")
+               .attr("text-anchor", "end")
+               .attr("y", 650)
+               .attr("x", 575)
+               .attr("dy", "1.5em")
+
+               .text("Construction Completed (year)");
+
    // ADD AXIS LABELS
 
    // ADD CLOUDS
@@ -69,13 +93,29 @@ var makeGraph = function(){
       			
    			var cloudPositions = [[100,100], [125, 75]];
 
+            var moveClouds = function repeat() {
+               var xPos = d3.select(this).attr("x")
+               var yPos = d3.select(this).attr("y")
+               console.log(xPos)
+                  d3.select(this).transition()
+                     .duration(4000)
+                     .ease("linear")
+                     .attr("x", (xPos - 20))
+                     .transition()
+                     .duration(4000)
+                     .ease("linear")
+                     .attr("x", xPos)
+                     .each("end", repeat);
+                     }
+
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
       				.attr("x", 100)
       				.attr("y", 100)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -83,7 +123,8 @@ var makeGraph = function(){
       				.attr("y", 75)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -91,7 +132,8 @@ var makeGraph = function(){
       				.attr("y", 100)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -99,7 +141,8 @@ var makeGraph = function(){
       				.attr("y", 75)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -107,7 +150,8 @@ var makeGraph = function(){
       				.attr("y", 100)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);   				
+      				.attr("width", 50)
+                  .on("load", moveClouds);   				
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -115,7 +159,8 @@ var makeGraph = function(){
       				.attr("y", 75)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -123,7 +168,8 @@ var makeGraph = function(){
       				.attr("y", 100)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);     	
+      				.attr("width", 50)
+                  .on("load", moveClouds);     	
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -131,7 +177,8 @@ var makeGraph = function(){
       				.attr("y", 75)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -139,7 +186,8 @@ var makeGraph = function(){
       				.attr("y", 100)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -147,7 +195,8 @@ var makeGraph = function(){
       				.attr("y", 75)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -155,7 +204,8 @@ var makeGraph = function(){
       				.attr("y", 100)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
       			
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -163,7 +213,8 @@ var makeGraph = function(){
       				.attr("y", 75)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -171,7 +222,8 @@ var makeGraph = function(){
       				.attr("y", 100)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -179,7 +231,8 @@ var makeGraph = function(){
       				.attr("y", 75)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -187,7 +240,8 @@ var makeGraph = function(){
       				.attr("y", 100)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -195,7 +249,8 @@ var makeGraph = function(){
       				.attr("y", 75)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);  
+      				.attr("width", 50)
+                  .on("load", moveClouds);  
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -203,7 +258,8 @@ var makeGraph = function(){
       				.attr("y", 100)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50); 
+      				.attr("width", 50)
+                  .on("load", moveClouds); 
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -211,7 +267,8 @@ var makeGraph = function(){
       				.attr("y", 75)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
 
       			canvas.append("svg:image")
       				.attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
@@ -219,7 +276,8 @@ var makeGraph = function(){
       				.attr("y", 100)
       				.attr("height", 50)
       				.attr("class", "cloud")
-      				.attr("width", 50);
+      				.attr("width", 50)
+                  .on("load", moveClouds);
    // ADD CIRCLES FOR DATA POINTS
    			canvas.selectAll("circle")
    				.data(data)
@@ -301,14 +359,17 @@ var makeGraph = function(){
    	})
    })
 }
+// Aanimate Clouds
 
-// var floatClouds = function{
-//    for (i = 0; i < 5; i++) {
-//       d3.select(this).transition()
-//          .duration(2000)
-//          .attr("x", -50);
-//    }
-// }
+// canvas.append("svg:image")
+//    .attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
+//    .attr("x", 100)
+//    .attr("y", 100)
+//    .attr("height", 50)
+//    .attr("class", "cloud")
+//    .attr("width", 50);
+
+
 
 // ANIMATIONS - MONSTERS
 var goGoGodzilla = function() {
@@ -406,6 +467,7 @@ window.onload = function(){
 	makeGraph();
 	cityToggle();
 	summon();
+   moveClouds();
    // floatClouds();	
 }
 
