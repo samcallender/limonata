@@ -359,17 +359,7 @@ var makeGraph = function(){
    	})
    })
 }
-// Aanimate Clouds
-
-// canvas.append("svg:image")
-//    .attr("xlink:href", "http://i.imgur.com/ScIgBRP.png")
-//    .attr("x", 100)
-//    .attr("y", 100)
-//    .attr("height", 50)
-//    .attr("class", "cloud")
-//    .attr("width", 50);
-
-
+// Aanimate Clouds(insert below)
 
 // ANIMATIONS - MONSTERS
 var goGoGodzilla = function() {
