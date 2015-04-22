@@ -1,3 +1,4 @@
+# id,building_id,building_name,city_name,image_width,image_height,drawing_id,city_id,state_id,state_abbreviation,country_name,status_id,status,finished,floors,building_use,antenna_height,spire_height,roof_height,created_at,updated_at
 1,7788,One World Trade Center,New York City,541,541,79151,8,6,NY,United States,6,built,2014,104,office,546.2,541.3,417,2015-04-06 18:36:32.651076,2015-04-06 18:36:32.651076
 2,95079,Nordstrom Tower,New York City,541,541,77738,8,6,NY,United States,6,under construction,2018,92,mixed use,0,541,450.8,2015-04-06 18:36:32.667142,2015-04-06 18:36:32.667142
 3,171,One Vanderbilt,New York City,462,462,78678,8,6,NY,United States,6,proposed,0,65,office,0,461.5,424.9,2015-04-06 18:36:32.671927,2015-04-06 18:36:32.671927
