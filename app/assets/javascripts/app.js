@@ -26,7 +26,7 @@ var makeGraph = function(){
 
    			var xScale = d3.scale.linear()
    				.domain([minYear, 2030])
-   				.range([10, 1000]);
+   				.range([10, 980]);
 
    			var yScale = d3.scale.linear()
    				.domain([minHeight, maxHeight + 50])
@@ -34,7 +34,7 @@ var makeGraph = function(){
 
    			var canvas = d3.select("#building-data")
    				.append("svg")
-   				.attr("width", 1300)
+   				.attr("width", 1000)
    				.attr("height", 700)
    				.attr("fill", "white")
    				// .append("g")
@@ -91,7 +91,7 @@ var makeGraph = function(){
    // ADD CLOUDS
    // <a href="http://imgur.com/ScIgBRP"><img src="http://i.imgur.com/ScIgBRP.png" title="source: imgur.com" /></a>
       			
-   			var cloudPositions = [[100,100], [125, 75]];
+   			// var cloudPositions = [[100,100], [125, 75]];
 
             var moveClouds = function repeat() {
                var xPos = d3.select(this).attr("x")
@@ -441,6 +441,17 @@ var summon = function(){
 	})
 }
 
+var begin = function() {
+   $('#begin-div').on('click', function(){
+      console.log('begin clicked');
+      // var position = $('#app-container').offset();
+      // scroll(0, position.top);
+
+      $('html, body').animate({scrollTop:$('#app-container').position().top}, 2500);
+
+   })
+}
+
 
 // var summon = function() {
 // 	$('.monster-display').on('click', function(){
@@ -454,6 +465,7 @@ var summon = function(){
 // }
 
 window.onload = function(){
+   begin();
 	makeGraph();
 	cityToggle();
 	summon();
