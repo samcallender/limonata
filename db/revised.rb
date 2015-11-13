@@ -107,20 +107,11 @@ select_diagrams_h = {
 
 # scrapes the first page of each city search page
 # input search page id's for selected diagrams into diagrams_id_a
-diagrams_id_a =	select_diagrams_h.keys
-# diagrams_id_a = ['67908320']
-
-# use p for how mamy pages deep you want to go for each city (25 buildings per page)
-
-		city = HTTParty.get('http://skyscraperpage.com/diagrams/?cityID=8')
-
-		city_rdom = Nokogiri::HTML(city)
-
-		city_med = city_rdom.css('.med')
-
-		city_table = city_med[6]
+city = HTTParty.get('http://skyscraperpage.com/diagrams/?cityID=8')
+city_rdom = Nokogiri::HTML(city)
+city_med = city_rdom.css('.med')
+city_table = city_med[6]
 		
-
 		# Note final gsub to remove ' strings in resulting arrays
 
 		building_name_aa.push(city_table.to_s.gsub("&amp;","and").split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['building']['name']"}[0][1].gsub("[",'').gsub("]",'').gsub("'", "").split(','))
@@ -148,7 +139,6 @@ diagrams_id_a =	select_diagrams_h.keys
 		building_use_aa.push(city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['buildingUse']"}[0][1].gsub("[",'').gsub("]",'').gsub("'", "").split(','))
 		antenna_height_aa.push(city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['antenna']"}[0][1].gsub("[",'').gsub("]",'').gsub("'", "").split(','))
 		spire_height_aa.push(city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['spire']"}[0][1].gsub("[",'').gsub("]",'').gsub("'", "").split(','))
-		roof_height_aa.push(city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['roof']"}[0][1].gsub("[",'').gsub("]",'').gsub("'", "").split(','))
+		roof_height_aa.push(city_table.to_s.split(';').map { |x| x.split(' = ') }.select { |x| x[0] == "data['roof']"}[0][1].gsub("[",'').gsub("]",'').gsub("'", "").split(','))	
 
 Pry.start(binding)
-
